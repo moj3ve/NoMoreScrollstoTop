@@ -3,7 +3,7 @@ Name: NoMoreScrollstoTop
 Depends: mobilesubstrate, preferenceloader, com.spark.libsparkapplist
 Version: 1.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: A simple tweak to disable scrollsToTop in **almost** all apps.
 Maintainer: ajaidan0
 Author: ajaidan0
 Section: Tweaks
