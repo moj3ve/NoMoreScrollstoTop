@@ -9,6 +9,7 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = NoMoreScrollstoTop
 
 NoMoreScrollstoTop_FILES = Tweak.xm
+NoMoreScrollstoTop_EXTRA_FRAMEWORKS += Cephei
 NoMoreScrollstoTop_CFLAGS = -fobjc-arc
 NoMoreScrollstoTop_LIBRARIES = sparkapplist
 

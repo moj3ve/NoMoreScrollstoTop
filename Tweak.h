@@ -1,3 +1,4 @@
+#import <Cephei/HBPreferences.h>
 #define PLIST_PATH @"/var/mobile/Library/Preferences/com.ajaidan.mavalryprefs.plist"
 
 @interface SparkAppList : NSObject
@@ -15,9 +16,3 @@
 @end
 
 BOOL isEnabled;
-
-static void loadPrefs()
-{
-    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:PLIST_PATH];
-    isEnabled = [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : YES;
-}

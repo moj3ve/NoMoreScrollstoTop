@@ -9,6 +9,7 @@ BUNDLE_NAME = scrollsprefs
 scrollsprefs_FILES = STTRootListController.m
 scrollsprefs_INSTALL_PATH = /Library/PreferenceBundles
 scrollsprefs_FRAMEWORKS = UIKit
+scrollsprefs_EXTRA_FRAMEWORKS += Cephei CepheiPrefs
 scrollsprefs_PRIVATE_FRAMEWORKS = Preferences
 scrollsprefs_CFLAGS = -fobjc-arc
 scrollsprefs_LIBRARIES = sparkapplist

@@ -1,32 +1,26 @@
 #import "Tweak.h"
 
-%group Tweak
-%hook UIScrollView
+@interface STTScrollView : UIScrollView
+-(BOOL)scrollsToTop;
+@end
 
--(id)initWithFrame:(CGRect)frame {
-    self = %orig;
-    self.scrollsToTop = false;
-    return self;
+%hook STTScrollView
+
+-(BOOL)scrollsToTop {
+    return false;
 }
 
--(id)initWithCoder:(id)arg1 {
-    self = %orig;
-    self.scrollsToTop = false;
-    return self;
-}
-
-%end
 %end
 
 %ctor {
-	loadPrefs();
-	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.ajaidan.scrollsprefs.settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+	HBPreferences *preferences = [[HBPreferences alloc] initWithIdentifier:@"com.ajaidan.scrollsprefs"];
+	[preferences registerBool:&isEnabled default:FALSE forKey:@"isEnabled"];
 
 	if (!isEnabled) {return;}
 
 	NSString* bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier]; // This is dependent on where it is called, may not be the correct method for your tweak!
 
     if([SparkAppList doesIdentifier:@"com.ajaidan.scrollsprefs" andKey:@"apps" containBundleIdentifier:bundleIdentifier]) {
-		%init(Tweak);
+		%init(STTScrollView=objc_getClass("UIScrollView"));
     } else {return;}
 }
