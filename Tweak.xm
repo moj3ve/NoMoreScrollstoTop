@@ -1,4 +1,7 @@
-#import "Tweak.h"
+#import <Cephei/HBPreferences.h>
+#import <SparkAppList.h>
+
+BOOL isEnabled;
 
 @interface UIStatusBarManager ()
 -(void)handleStatusBarTapWithEvent:(id)arg1 ;
