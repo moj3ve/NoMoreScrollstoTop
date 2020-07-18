@@ -1,15 +1,17 @@
 #import "Tweak.h"
 
-@interface STTScrollView : UIScrollView
--(BOOL)scrollsToTop;
+@interface UIStatusBarManager ()
+-(void)handleStatusBarTapWithEvent:(id)arg1 ;
 @end
 
-%hook STTScrollView
+%group Tweak
+%hook UIStatusBarManager
 
--(BOOL)scrollsToTop {
-    return false;
+-(void)handleStatusBarTapWithEvent:(id)arg1 {
+	
 }
 
+%end
 %end
 
 %ctor {
@@ -21,6 +23,6 @@
 	NSString* bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier]; // This is dependent on where it is called, may not be the correct method for your tweak!
 
     if([SparkAppList doesIdentifier:@"com.ajaidan.scrollsprefs" andKey:@"apps" containBundleIdentifier:bundleIdentifier]) {
-		%init(STTScrollView=objc_getClass("UIScrollView"));
+		%init(Tweak);
     } else {return;}
 }
