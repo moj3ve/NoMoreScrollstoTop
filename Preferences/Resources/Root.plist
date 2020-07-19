@@ -61,17 +61,6 @@
 			<key>cellClass</key>
 			<string>HBLinkTableCell</string>
 			<key>label</key>
-			<string>Donate</string>
-			<key>icon</key>
-			<string>donations.png</string>
-			<key>url</key>
-			<string>https://paypal.me/ajaidan</string>
-		</dict>
-
-		<dict>
-			<key>cellClass</key>
-			<string>HBLinkTableCell</string>
-			<key>label</key>
 			<string>Discord Support Server</string>
 			<key>icon</key>
 			<string>discord.png</string>

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>scrollsprefs</string>
+	<string>ScrollsPrefs</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.ajaidan.scrollsprefs</string>
 	<key>CFBundleInfoDictionaryVersion</key>

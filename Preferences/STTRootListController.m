@@ -38,32 +38,11 @@
 	return _specifiers;
 }
 
--(id)init {
-	self = [super init];
-	if(self) {
-		HBAppearanceSettings *appearanceSettings = [[HBAppearanceSettings alloc] init];
-		appearanceSettings.navigationBarTintColor = [UIColor whiteColor];
-		appearanceSettings.navigationBarTitleColor = [UIColor whiteColor];
-		appearanceSettings.navigationBarBackgroundColor = [UIColor colorWithRed: 0.74 green: 0.54 blue: 0.98 alpha: 1.00];
-		appearanceSettings.tableViewCellSeparatorColor = [UIColor clearColor];
-		appearanceSettings.translucentNavigationBar = NO;
-		self.hb_appearanceSettings = appearanceSettings;
-		UIBarButtonItem *respringButton = [[UIBarButtonItem alloc]
-                                initWithTitle:@"Apply"
-                                style:UIBarButtonItemStylePlain
-                                target:self
-                                action:@selector(respring)];
-		self.navigationItem.rightBarButtonItem = respringButton;
-	}
-
-	return self;
-}
-
 - (void)selectApps {
   SparkAppListTableViewController* s = [[SparkAppListTableViewController alloc] initWithIdentifier:@"com.ajaidan.scrollsprefs" andKey:@"Apps"];
 
     [self.navigationController pushViewController:s animated:YES];
-	s.navigationItem.title = @"Select Apps";
+	  s.navigationItem.title = @"Select Apps";
     self.navigationItem.hidesBackButton = FALSE;
 
 }
@@ -74,12 +53,14 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	UIBarButtonItem *respringButton = [[UIBarButtonItem alloc]
+  UIBarButtonItem *respringButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Apply"
                                    style:UIBarButtonItemStylePlain
                                    target:self
                                    action:@selector(respring)];
 	self.navigationItem.rightBarButtonItem = respringButton;
+  STTAppearanceSettings *appearanceSettings = [[STTAppearanceSettings alloc] init];
+  self.hb_appearanceSettings = appearanceSettings;
 }
 
 @end
