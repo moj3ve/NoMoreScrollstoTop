@@ -4,13 +4,13 @@ include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = ScrollsPrefs
 
-ScrollsPrefs_FILES = STTRootListController.m STTAppearanceSettings.m
-ScrollsPrefs_INSTALL_PATH = /Library/PreferenceBundles
-ScrollsPrefs_FRAMEWORKS = UIKit
-ScrollsPrefs_EXTRA_FRAMEWORKS += Cephei CepheiPrefs
-ScrollsPrefs_PRIVATE_FRAMEWORKS = Preferences
-ScrollsPrefs_CFLAGS = -fobjc-arc
-ScrollsPrefs_LIBRARIES = sparkapplist
+$(BUNDLE_NAME)_FILES = STTRootListController.m STTAppearanceSettings.m
+$(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
+$(BUNDLE_NAME)_FRAMEWORKS = UIKit
+$(BUNDLE_NAME)_EXTRA_FRAMEWORKS += Cephei CepheiPrefs
+$(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences
+$(BUNDLE_NAME)_CFLAGS = -fobjc-arc
+$(BUNDLE_NAME)_LIBRARIES = sparkapplist
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
