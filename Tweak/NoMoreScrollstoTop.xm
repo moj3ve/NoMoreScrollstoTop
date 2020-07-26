@@ -1,17 +1,24 @@
+// NoMoreScrollstoTop
+// Copyright (c) ajaidan0 2020
+
 #import <Cephei/HBPreferences.h>
 #import <SparkAppList.h>
 
 BOOL isEnabled;
 
-@interface UIStatusBarManager ()
--(void)handleStatusBarTapWithEvent:(id)arg1 ;
-@end
-
 %group Tweak
-%hook UIStatusBarManager
+%hook UIScrollView
 
--(void)handleStatusBarTapWithEvent:(id)arg1 {
-	
+-(id)initWithFrame:(CGRect)frame {
+    self = %orig;
+    self.scrollsToTop = false;
+    return self;
+}
+
+-(id)initWithCoder:(id)arg1 {
+    self = %orig;
+    self.scrollsToTop = false;
+    return self;
 }
 
 %end
@@ -23,7 +30,9 @@ BOOL isEnabled;
 
 	if (!isEnabled) {return;}
 
-	NSString* bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier]; // This is dependent on where it is called, may not be the correct method for your tweak!
+    // Thanks, SparkDev!
+
+	NSString* bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
 
     if([SparkAppList doesIdentifier:@"com.ajaidan.scrollsprefs" andKey:@"apps" containBundleIdentifier:bundleIdentifier]) {
 		%init(Tweak);
